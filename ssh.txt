@@ -1,0 +1,64 @@
+# See known hosts
+sudo vi .ssh/known_hosts
+
+------------------------------------------------------------------------
+SSH Shortcuts [how to]
+------------------------------------------------------------------------
+mate ~/.ssh/config
+OR
+sudo vi ~/.ssh/config
+
+Settings:
+
+Host *gmls-staging.ubertor.net
+  ForwardAgent yes
+
+Host localbiz
+   HostName 54.244.249.44
+   User ubuntu
+
+Host localbiz-crawler
+   HostName 54.203.250.94
+   User ubuntu
+
+Host jobsin
+   HostName 54.227.236.62
+   User ubuntu
+
+Host jobsin-crawler
+   HostName ec2-54-166-74-90.compute-1.amazonaws.com
+   User ubuntu
+   IdentityFile /Users/reonios/Desktop/jobsin/jobsin_imp/jobsin_east.pem
+
+------------------------------------------------------------------------
+Managing multiple SSH keys
+------------------------------------------------------------------------
+
+# create another ssh-key pair for git
+ssh-keygen -t rsa -C "raghu.boos@gamil.com"
+
+# add the file name e.g: "id_rsa_raghu_private"
+ssh-add ~/.ssh/id_rsa_raghu_private
+ssh-add -D
+ssh-add -l
+cd ~/.ssh/
+sudo touch config
+sudo vi config
+
+# Then add following(github name can be anything its upto you)
+Host github.com-raghu-private
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_raghu
+
+# Note the name at the end of github its pointing towards the key
+git clone git@github.com-raghu-private:raghuboosetty/ensigns.git
+
+
+# further
+git config user.name "raghu"
+git config user.email "raghu.boos@gmail.com"
+
+
+# Source:
+# https://gist.github.com/jexchan/2351996

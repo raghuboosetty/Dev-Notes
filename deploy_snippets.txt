@@ -1,0 +1,31 @@
+Apache, Passenger and Ubuntu
+
+rvm use --default 2.1.5
+
+deploy.rb
+  - set :rvm_type, :system
+  - set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+
+gem install passenger
+
+passenger-install-apache2-module
+
+passenger conf
+  - /etc/apache2/apache2.conf
+  
+vitual hosts
+  - /etc/apache2/sites-available/000-defaults.conf
+  - /etc/apache2/ports.conf
+  
+sudo service apache2 restart
+
+
+secrets.yml
+  - change secrets.yml to add secret_key_base
+
+asset_host
+  - production.rb
+  - mailer
+  
+compile assets option set to true
+  - production 

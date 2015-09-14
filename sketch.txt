@@ -1,0 +1,7 @@
+------------------------------------------------------------------------
+Crack [Software Mac] - Not recommended - rather purchase it.
+------------------------------------------------------------------------
+1) Edit file ~/Library/Application Support/com.bohemiancoding.sketch3/.license
+2) Change the keys values "sign" to "==" and "expiration" to "999999999" and set "type" to "license"
+
+## NOTE: its just a loophole found

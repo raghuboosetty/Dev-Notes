@@ -1,0 +1,52 @@
+Copy public key to server:
+$cat ~/.ssh/id_rsa.pub | ssh root@198.58.113.102 "cat >> ~/.ssh/authorized_keys"
+$cat ~/.ssh/id_rsa.pub | ssh -i jobsin_east.pem ubuntu@ec2-174-129-53-61.compute-1.amazonaws.com "cat >> ~/.ssh/authorized_keys"
+--------------------------------------------------------------------------------
+jobsin-crawler
+$ssh ubuntu@ec2-174-129-53-61.compute-1.amazonaws.com
+
+jobsin
+$ssh ubuntu@54.227.236.62
+--------------------------------------------------------------------------------
+Scp:
+$scp app_app lmft@lmft.maxsagan.com:/var/www/app/
+--------------------------------------------------------------------------------
+current dir path command: 
+$pwd
+--------------------------------------------------------------------------------
+Custom aliases(Mac):
+$nano ~/.bash_profile
+[restart terminal required]
+or enter this
+$source ~/.bash_profile
+
+
+e.g:
+## run rails server
+alias s="rails s"
+
+## jobsin
+alias j="cd ~/Documents/raghu/jobsin ; rvm use 1.9.3-p448@jobsin ; git branch ; git status"
+alias jc="cd ~/Documents/raghu/jobsin-crawler ; rvm use 2.0.0-p247@jobsin-crawler ; git branch ; git status"
+
+## ubertor
+alias u="cd ~/Work/ubertor_devlauncher ; rvm use 1.8.7 ; sh run.sh"
+--------------------------------------------------------------------------------
+change ssh password
+$ssh -t root@198.58.118.215 passwd
+c@nd!d16
+gr33ngr@$$07
+--------------------------------------------------------------------------------
+http://ubuntu.flowconsult.at/en/mysql-set-change-reset-root-password/
+
+$sudo /etc/init.d/mysql stop ($service mysql stop)
+$sudo mysqld --skip-grant-tables &
+$mysql -u root mysql
+$UPDATE user SET Password=PASSWORD('c@nd!d1016') WHERE User='root'; FLUSH PRIVILEGES; exit;
+--------------------------------------------------------------------------------
+ActionController::Base.helpers.sanitize(a, tags: %w(table tr td ul li br span), attributes: %w(id class))
+
+ActionController::Base.helpers.sanitize_css(a)
+Rails.application.config.database_configuration[Rails.env]
+
+ActiveRecord::Base.connection.supports_migrations?

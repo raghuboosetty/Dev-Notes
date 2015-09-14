@@ -1,0 +1,40 @@
+------------------------------------------------------------------------
+Refresher
+------------------------------------------------------------------------
+1) git status
+
+2) git add .
+3) git commit -m ""
+4) git pull origin <branch>
+
+5) see if there are any conflicts
+- fix the conflicts, remove all the code with "====" and ">>"
+- remove duplicate code
+- run the app and see if everything is intact
+- commit again
+5a) git add .
+5b) git commit -m "fixed merge conflicts"
+5c) git pull origin <branch>
+
+6) git push origin <branch>
+  
+------------------------------------------------------------------------
+Advanced
+------------------------------------------------------------------------
+$ git -m old-branch-name new-branch-name  # rename branch
+$ git branch new-branch-name origin/old-branch-name
+$ git push origin new-branch-name
+$ git push origin :old-branch-name  # delete branch remotely
+
+$ git branch -D branch-name # delete branch locally
+
+
+http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring
+If you are trying to ignore changes to a file that's already tracked in the repository (e.g. a dev.properties file that you would need to change for your local environment but you would never want to check in these changes) than what you want to do is:
+git update-index --assume-unchanged <file>
+
+If you wanna start tracking changes again
+git update-index --no-assume-unchanged <file>
+
+remove cached version of a file or dir
+git rm --cached vendor/gems/rdf

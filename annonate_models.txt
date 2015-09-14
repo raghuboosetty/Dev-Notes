@@ -1,0 +1,27 @@
+annotate --exclude tests,fixtures,factories --position after --show-indexes
+annotate --exclude tests,fixtures,factories --position after --show-indexes --model-dir
+
+
+# Miscellaneous samples
+rails g bootstrap:install static --no-coffeescript
+
+rails g controller dashboard index --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold company token:string:index:uniq name:string:index founded:decimal size:decimal description:text photo_url:text industry:string categories:text company_type:string website:string:indexed address:text address_1:text last_refresh_at:datetime:index --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold person company:references token:string:index name:string email:string:index phone:string:index designation:string age:integer gender:string{2} religion:string nationality:string education:string education:string qualification:string website:text marital_status:string categories:text address:text address_1:text summary:text experience:string key:boolean rating:decimal, last_refersh_at:datetime --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold profile profilable:references{polymorphic} source:references url:text url_hash:string:index raw:text --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold phone phonable:references{polymorphic} number:string:index device:string --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold source name:string url:string country_code:string domain:string --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold crawl_url source:references url:text url_hash:string:index status:string error_message:string error_backtrace:text --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold crawler_stat crawl_url:references status:string error_message:string error_backtrace:text --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+rails g scaffold raw_dump crawler_stat:references url:text raw:text status:string error_message:string error_backtrace:text --no-helper --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+
+rails g model experience --no-test-framework

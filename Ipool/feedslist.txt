@@ -1,0 +1,78 @@
+SimplyHired:
+http://www.simplyhired.co.in/a/jobs/list/q-ruby+on+rails
+http://www.simplyhired.co.in/a/job-feed/rss/q-ruby+on+rails
+
+37Signals:
+https://weworkremotely.com/
+https://weworkremotely.com/categories/2/jobs.rss
+
+rubynow:
+http://jobs.rubynow.com/
+http://feeds.feedburner.com/jobsrubynow
+
+indeed:
+http://www.indeed.co.in/ruby-on-rails-jobs
+get email notification and read from email
+
+Rubyinside:
+http://ruby.jobamatic.com/a/jbb/find-jobs
+http://ruby.jobamatic.com/a/jbb/find-jobs-rss?sb=1&sbo=1
+
+ruby learning
+http://rubylearning.com/jobs/ruby_jobs.html
+no feeds
+
+Railsjobs.in
+http://railsjobs.in/jobs?search%5Border_by%5D=created_at&search%5Border_as%5D=DESC&search%5Bper_page%5D=25&search%5Bpriority_order_by%5D=&search%5Bpriority_order_as%5D=&search%5Bconditions%5D%5Bcity_contains%5D=&search%5Bconditions%5D%5Bcountry_contains%5D=india&commit=Search
+http://railsjobs.in/jobs.atom?country=India
+
+
+Stackoverflow
+http://careers.stackoverflow.com/jobs?searchTerm=%22ruby+on+rails%22
+http://careers.stackoverflow.com/jobs/feed?searchTerm=%22ruby+on+rails%22
+
+Xerox jobs
+http://xerox.jobs/jobs/?q=rails
+http://xerox.jobs/jobs/feed/rss
+
+devBistro
+http://www.devbistro.com/s/India/rails-jobs
+http://www.devbistro.com/rails-jobs
+http://www.devbistro.com/rss/jobs-by-keywords/Rails
+http://www.devbistro.com/rss/jobs-by-keywords-limit/500/Rails
+no description
+
+Indeed:
+https://ads.indeed.com/jobroll/xmlfeed
+
+
+Best rails jobs sites:
+http://www.rubyinside.com/6-ruby-and-rails-job-sites-312.html
+
+Hosting
+https://www.linode.com/pricing (2GB plan - $20/permonth)
+http://aws.amazon.com/ec2/pricing/  ( m3 medium - $0.070/perhour)
+
+Domain
+railscareers.in - 199 INR
+railscareer.com - 589 INR
+railsjobs.info - 299 INR
+jobsinrails.com - 589 INR
+jobsonrails.in - 199 INR
+rorjobs.in - 199 INR
+rorjobs.info - 299 INR
+
+Permonth Avg. Cost:
+$20-$50 = 1200 INR - 3000 INR
+
+
+
+- There is hardly any jobboard in such a way in Indian market
+- Every rails job scraped will ofcourse have an apply link, and if a candidate applies for a job then, application will be forwarded to us and goes to corresponding company. We can offer better pay or reach him in that way. Its just to target people.
+- We too can post our jobs, which ofcourse will be on first page.
+- As a next level we can add payment gateway with a least of 500/- for a 2 jobs a month or so (aiming as least a possible to attract)
+
+
+
+https://www.youtube.com/watch?v=URfpF92l7tg&list=RDA5YxZrfrVes&index=32
+https://www.youtube.com/watch?v=idyZt8F0dc0&list=RDA5YxZrfrVes&index=13

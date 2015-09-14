@@ -1,0 +1,11 @@
+heroku login
+e : cass@rubyeffect.com
+p : ginger79
+
+
+heroku pgbackups:capture --app <app_name>
+heroku pgbackups --app <app_name>                             # lists all the backup taken so far
+heroku pgbackups:url --app <app_name>                         # url to donwload the latest backup dump file
+heroku pgbackups:destroy <id of the backup> --app <app_name>  # get the id of the backup
+
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U <here_mostly_it_will_be_root> -d <db_name> latest.dump

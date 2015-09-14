@@ -1,0 +1,21 @@
+dev links:
+http://0to255.com/000
+http://html2haml.heroku.com
+http://www.antidote.co.uk
+http://ruby.railstutorial.org/chapters/filling-in-the-layout#sec-custom_css
+
+css-layout:
+http://themeshaper.com/forums/topic/how-do-you-use-dynamically-generated-css-classes
+http://www.rottentomatoes.com/
+
+bootstrap-git
+https://github.com/thomas-mcdonald/bootstrap-sass/tree/master/vendor/assets/stylesheets/bootstrap
+
+annotate-git
+https://github.com/ctran/annotate_models
+
+sitemap-git
+https://github.com/flyerhzm/sitemap
+
+popular-websites
+http://www.ebizmba.com/articles/movie-websites

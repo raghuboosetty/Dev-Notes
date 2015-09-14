@@ -1,0 +1,25 @@
+Cucumber:
+Cucumber is a command-line tool. When you run it, it reads in your specifi- cations from plain-language text files called features, examines them for scenarios to test, and runs the scenarios against your system. Each scenario is a list of steps for Cucumber to work through. So that Cucumber can under- stand these feature files, they must follow some basic syntax rules. The name for this set of rules is Gherkin.
+
+Gherkin
+Cucumber tests are expressed using a syntax called Gherkin. Gherkin files are plain text and have a .feature extension.
+• Feature
+• Background
+• Scenario
+• Given
+• When
+• Then
+• And
+• But
+• *
+• Scenario Outline
+• Examples
+# https://github.com/cucumber/cucumber/wiki/Step-Definitions
+# http://ruby.railstutorial.org/ruby-on-rails-tutorial-book
+
+# running single feature:
+cucumber --require features features/organizations
+
+bundle update selenium-webdriver
+
+When /^  $/ do

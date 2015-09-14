@@ -1,0 +1,21 @@
+------------------------------------------------------------------------
+Mysql plugin installation, with NPI [NewRelic]
+------------------------------------------------------------------------
+https://github.com/newrelic-platform/newrelic_mysql_java_plugin#option-1--install-with-the-new-relic-platform-installer
+
+java --version
+apt-get install openjdk-7-jre-headless
+java --version
+
+-----Choose the correct archicture(x64 or x86)
+LICENSE_KEY=caa006f8a982492c348fc05303d92c0143234f5b bash -c "$(curl -sSL https://download.newrelic.com/npi/release/install-npi-linux-debian-x64.sh)"
+cd /home/ubuntu/newrelic-npi
+
+-----Check all the commands
+./npi
+./npi install com.newrelic.plugins.mysql.instance
+-----Y for configuring and add you db details to it
+-----Testing
+./npi start nrmysql --foreground
+./npi stop nrmysql --foreground
+./npi start nrmysql --background

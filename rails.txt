@@ -1,0 +1,100 @@
+------------------------------------------------------------------------
+Scaffolding commands
+------------------------------------------------------------------------
+rails g controller home index --no-test-framework --no-helper --no-assets --no-controller-specs --no-view-specs
+rails g controller ats --no-assets --no-controller-specs --no-view-specs --no-test-framework
+
+------------------------------------------------------------------------
+Console
+------------------------------------------------------------------------
+reload!
+
+# Error: RawListing (call 'RawListing.connection' to establish a connection)
+# Solution:
+!ActiveRecord::Base.connection.supports_explain?
+ActiveRecord::Base.clear_cache!
+
+# running a migratoin in console
+ActiveRecord::Migration.rename_column :states, :state, :name
+ActiveRecord::Migration.rename_column :states, :state_code, :code
+ActiveRecord::Migration.rename_column :cities, :city, :name
+
+------------------------------------------------------------------------
+Routes
+------------------------------------------------------------------------
+# Display in views
+- Rails.application.routes.routes.to_a.each do |route|
+  - if route.defaults[:action] == 'index' && !route.defaults[:controller].include?('rails')
+    %li= link_to route.name, eval("#{route.name}_path")
+
+
+------------------------------------------------------------------------
+Secrets [yml]
+------------------------------------------------------------------------
+rake secret
+
+export SECRET_KEY_BASE=7d285fdef267d47fafc5db8c2a8de6a82ee63c40ec021846c78db2bb8519900e1a8dde00a26684c5bcc6dd41d9d922e9343857e7cac17483c9e79d0702293319
+
+printenv
+printenv 'SECRET_KEY_BASE'
+
+# http://stackoverflow.com/questions/23180650/how-to-solve-error-missing-secret-key-base-for-production-environment-on-h/26172408#26172408
+# http://www.jamesbadger.ca/2012/12/18/generate-new-secret-token/
+
+------------------------------------------------------------------------
+Logs
+------------------------------------------------------------------------
+ActiveRecord::Base.logger.level = 1
+
+------------------------------------------------------------------------
+Migrations
+------------------------------------------------------------------------
+ActiveRecord::Migrator.get_all_versions
+ActiveRecord::Migrator.current_version
+
+------------------------------------------------------------------------
+Auto load paths
+------------------------------------------------------------------------
+# config/development.rb
+ActiveSupport::Dependencies.autoload_paths << "/path_to_gem_dir/gem_name/lib"
+
+# http://stackoverflow.com/questions/6191635/how-to-reload-a-gem-on-every-request-in-development-mode
+# http://stackoverflow.com/questions/3418895/how-to-reload-all-gems-in-rails-3
+
+------------------------------------------------------------------------
+Sanitize
+------------------------------------------------------------------------
+html.gsub(/(<style>.*<\/style>)/m, "").gsub(/(<script .*<\/script>)/m, "")
+
+Sanitize.clean(html.gsub(/(<style>.*<\/style>)/m, "").gsub(/(<script .*<\/script>)/m, ""), Sanitize::Config::RESTRICTED)
+
+------------------------------------------------------------------------
+Other
+------------------------------------------------------------------------
+Job.with_deleted.group("DATE_TRUNC('month', deleted_at)").count
+
+Job.with_deleted.count(group: "year(updated_at),month(updated_at)")
+
+Job.with_deleted.group_by { |m| m.updated_at.beginning_of_month }
+
+Job.with_deleted.select("*,MONTH(created_at) as month")
+
+
+Job.with_deleted.group("to_char(updated_at,'MONTH')").count
+
+Job.with_deleted.group("month(updated_at)").count
+
+
+# Issue Priority
+p.issues.includes(:priority).order("#{IssuePriority.table_name}.name")
+
+p.issues.includes(:priority).order("#{IssuePriority.table_name}.position DESC").select(&:due_date).sort_by(&:due_date).map{|m| m.priority.name}
+
+p.issues.includes(:priority).order("#{IssuePriority.table_name}.position DESC").map{|m| m.priority.name}
+
+p.issues.includes(:priority).order("#{IssuePriority.table_name}.position DESC").group_by(:due_date).map{|m| m.priority.name}
+
+p.issues.includes(:priority).order("#{IssuePriority.table_name}.position DESC, date(due_date) ASC").map{|m| m.priority.name}
+
+
+datetime(date) ASC

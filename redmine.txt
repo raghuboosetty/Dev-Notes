@@ -1,0 +1,6 @@
+# http://www.redmine.org/projects/redmine/wiki/Plugin_Tutorial
+
+rails g redmine_plugin_controller mandara_dashboard matrix
+rails g redmine_plugin_model mandara_dashboard top_task project:references issue:references user:references position:intege
+rake db:migrate_plugins NAME=mandara_dashboard
+redmine:plugins:migrate

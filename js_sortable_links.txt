@@ -1,0 +1,11 @@
+sortable:
+http://api.jqueryui.com/sortable/
+
+http://devheart.org/articles/jquery-customizable-layout-using-drag-and-drop/
+http://aseptik.net/demo/jquery-sortable-limit-number-of-items-in-list/
+http://stackoverflow.com/questions/2438516/jquery-sortable-limit-number-of-items-in-list
+http://stackoverflow.com/questions/9703905/jquery-sortable-connectwith-multiple-lists
+http://www.sowebdesign.com/dragv2/
+
+http://stackoverflow.com/questions/12098120/jquery-ui-sortable-move-item-automatically
+

@@ -1,0 +1,43 @@
+------------------------------------------------------------------------
+Bug fixes notes
+------------------------------------------------------------------------
+If builds of PostgreSQL 9 are failing and you have version 8.x installed,
+you may need to remove the previous version first. See:
+  https://github.com/Homebrew/homebrew/issues/2510
+
+To migrate existing data from a previous major version (pre-9.4) of PostgreSQL, see:
+  http://www.postgresql.org/docs/9.4/static/upgrading.html
+
+To have launchd start postgresql at login:
+    ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+Then to load postgresql now:
+    ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+Or, if you don't want/need launchctl, you can just run:
+    postgres -D /usr/local/var/postgres
+
+------------------------------------------------------------------------
+Import & Login
+------------------------------------------------------------------------
+# import:
+cat database_name.pgdump | psql -d database_name -U postgres
+psql fantravel_development < fan_travel.psql -U postgres
+
+# login
+psql -d dbname -U username -W
+
+u: postgres
+p: nimbu
+
+psql -U postgres -h localhost
+
+# links:
+# http://itbdc.wordpress.com/2008/06/23/export-import-postgresql-database/
+# http://www.cyberciti.biz/faq/psql-fatal-ident-authentication-failed-for-user/
+
+------------------------------------------------------------------------
+Location and Other
+------------------------------------------------------------------------
+installation directory - /Library/PostgreSQL/9.2
+data directory - /Library/PostgreSQL/9.2/data
+password - nimbu
+port - 5433

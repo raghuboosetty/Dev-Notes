@@ -1,0 +1,60 @@
+- Benchmark
+require 'benchmark'
+Benchmark.bm do|b|
+  b.report("+= ") do
+    a = ""
+    100_000.times { a += "." }
+  end
+
+  b.report("<< ") do
+    a = ""
+    100_000.times { a << "." }
+  end
+end
+
+require 'benchmark'
+Benchmark.bm do|b|
+  b.report("a+=1 ") do
+    a = 0
+    10_000_000.times { a += 1 }
+  end
+
+  b.report("a = a+1 ") do
+    a = 0
+    10_000_000.times { a = a+1 }
+  end
+end
+
+----------------------------------------------------------
+ruby 2.1.1 is better than ruby 2.0.0 in terms of performance
+Time required to process 50,000 empty jobs with a single Sidekiq process running 25 threads.
+2.1.1	- 46 sec (without log)
+2.0.0	- 50 sec (without log)
+http://www.mikeperham.com/2014/04/22/ruby-performance-2014/
+----------------------------------------------------------
+GC improvement from
+1.9.3 to 2.0.0 (same as is)
+2.0.0 to 2.1.x (good improvement)
+http://tmm1.net/ruby21-rgengc/
+http://stackoverflow.com/questions/16299419/garbage-collector-tuning-in-ruby-2-0/16304076#16304076
+----------------------------------------------------------
+ObjectSpace tools to track down memory leaks
+----------------------------------------------------------
+https://github.com/johnotander/ruby_optimization_techniques
+----------------------------------------------------------
+Use Typhoeus, as it can create a thread pool
+https://github.com/typhoeus/typhoeus
+----------------------------------------------------------
+GC STATS:
+
+GC.enable_stats
+User.all; nil
+GC.allocated_size
+=> 129630037
+
+User.find_each do |u|
+  break
+end
+GC.allocated_size
+=> 2186329
+----------------------------------------------------------

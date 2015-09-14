@@ -1,0 +1,14 @@
+------------------------------------------------------------------------
+Install phpmyadmin in [Mac]
+------------------------------------------------------------------------
+- Apache already pre-installed on Mac
+http://jason.pureconcepts.net/2014/11/install-apache-php-mysql-mac-os-x-yosemite/
+
+- Final step for setup:
+0. http://localhost/phpmyadmin/setup/index.php?action_done=config_saved
+1. New Server
+2. Add mysql username and password; click Apply
+3. Save
+4. Done, go to http://localhost/phpmyadmin
+
+http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-10-yosemite/

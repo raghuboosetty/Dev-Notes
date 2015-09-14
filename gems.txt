@@ -1,0 +1,10 @@
+------------------------------------------------------------------------
+ERD Diagrams
+------------------------------------------------------------------------
+gem "rails-erd"
+bundle exec erd
+
+brew install graphviz
+
+erd --inheritance --direct --attributes=foreign_keys,content --filetype=dot
+dot -Tjpg erd.dot > erd.jpg

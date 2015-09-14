@@ -1,0 +1,90 @@
+------------------------------------------------------------------------
+Keys
+------------------------------------------------------------------------
+⌘ – Command Key –––––– &#x2318; – &#8984;
+⌥ – Option Key ––––––– &#x2325; – &#8997;
+⇧ – Shift Key –––––––– &#x21E7; – &#8679;
+⎋ – ESC Key –––––––––– &#x238B; – &#9099;
+⇪ – Capslock ––––––––– &#x21ea; – &#8682;
+⏎ – Return ––––––––––– &#x23ce; – &#9166;
+⌫ – Delete/Backspace – &#x232b; – &#9003;
+
+------------------------------------------------------------------------
+Commands
+------------------------------------------------------------------------
+# Hide/Show login users
+# https://support.apple.com/en-us/HT203998
+sudo dscl . create /Users/postgres IsHidden 1
+sudo dscl . create /Users/postgres IsHidden 0
+
+# Flush Cache
+dscacheutil -flushcache
+
+# Show hidden files
+defaults write com.apple.Finder AppleShowAllFiles YES
+
+# Force Quit Applications
+option + command + esc
+
+# Textmate
+control + shift + T   # gives all the list of TODO and FIXME
+control + G           # case change
+command + K           # git diff(custom)
+command + T           # search files
+
+# Chrome
+shift + fn + delete   # remove input fields auto-suggest
+
+# Skype login multiple accounts
+cd /Applications/Skype.app/Contents/MacOS/ # Open a Terminal window
+sudo ./Skype                               # starts skype with root user
+
+------------------------------------------------------------------------
+Macvim [Install]
+------------------------------------------------------------------------
+Step 1. Install homebrew from here: http://brew.sh
+Step 1.1. Run export PATH=/usr/local/bin:$PATH
+Step 2. Run brew update
+Step 3. Run brew install vim && brew install macvim
+Step 4. Run brew link macvim
+
+------------------------------------------------------------------------
+Mavricks Issues [Upgrade]
+------------------------------------------------------------------------
+# if error at : /usr/local/lib/libmysqlclient.18.dylib
+which mysql
+sudo ln -s /usr/local/Cellar/mysql/5.6.14/lib/libmysqlclient.18.dylib /usr/local/lib/libmysqlclient.18.dylib
+
+# if error at : /usr/local/lib/libMagickCore-6.Q16.1.dylib
+sudo find / -name "libMagickCore.5.dylib" -print
+sudo ln /usr/local/Cellar/imagemagick/6.8.7-7/lib/libMagickCore-6.Q16.1.dylib /usr/local/lib/libMagickCore-6.Q16.1.dylib
+
+# Library not loaded: /usr/local/lib/libltdl.7.dylib
+brew install libtool --universal
+brew link libtool
+
+
+# You're running a version of ruby with no Readline support
+# Please `gem install rb-readline` or recompile ruby --with-readline.
+sudo apt-get install libreadline5-dev libncurses5-dev
+
+ls -1 /usr/local/Library/LinkedKegs | while read line; do
+    echo $line
+    brew unlink $line
+    brew link --force $line
+done
+
+# OR
+
+brew list -1 | while read line; do brew unlink $line; brew link $line; done
+
+brew tap --repair homebrew/dupes
+brew doctor
+
+rvm reinstall 2.0.0 --with-readline
+
+------------------------------------------------------------------------
+Warnings
+------------------------------------------------------------------------
+# brew warning: Insecure world writable dir /usr/local/Cellar
+chmod go-w /usr/local/Cellar/mysql

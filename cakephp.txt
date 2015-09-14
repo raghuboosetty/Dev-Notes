@@ -1,0 +1,110 @@
+------------------------------------------------------------------------
+STEPS USING/UPDATING SCHEMA ( on server/locally )
+------------------------------------------------------------------------
+1) Schema Generate ( generates schema_<version>.php files based on the database present )
+  - app/Console/cake schema generate
+  - enter [s] - for generating snapshot
+
+2) Schema Create ( dropping/creating tables based on schema files )
+  - app/Console/cake schema create -s 12
+
+3) Schema Update ( updating tables/altering tables )
+  - app/Console/cake schema update -s 12
+
+
+------------------------------------------------------------------------
+Steps to setup CakePHP [Mac]
+------------------------------------------------------------------------
+1) download the MAMP(equivalent to LAMP on linux) from this link:
+http://www.mamp.info/en/index.html
+Unzip and install it
+( PRO isn't really required )
+
+2) Open MAMP ( basic )
+Start server and check the phpmyadmin page
+check the ports for apache and mysql under preferences
+
+3) Open "/Applications/MAMP/conf/apache/httpd.conf" (assumed to be installed in 'Applications')
+Add the virtual hosts accordingly ( find the corresponding location or at the bottom )
+
+# <VirtualHost *>
+#   DocumentRoot "/Applications/cakephp-2.3.2/app/webroot"
+#   ServerName localhost.cake
+#   RewriteEngine on
+#   <Directory "/Applications/cakephp-2.3.2/app/webroot/">
+#     AllowOverride All
+#         Order deny,allow
+#         Allow from All
+#   </Directory>
+# </VirtualHost>
+
+<VirtualHost *>
+	DocumentRoot "/Users/neelablue/Documents/raghu/jobs_in/app/webroot"
+	ServerName localhost.jobs_in
+	RewriteEngine on
+	<Directory "/Users/neelablue/Documents/raghu/jobs_in/">
+		AllowOverride All
+        Order deny,allow
+        Allow from All
+	</Directory>
+</VirtualHost>
+
+4) run this command in terminal
+$ sudo vi /etc/hosts
+and insert this line:
+127.0.0.1  localhost.jobs_in
+
+vi commands:
+  insert - i
+  write  - :w
+  quit   - :q
+  quit without saving - :q!
+
+5) open .gitignore file ( if the project is already existing and on git )
+check all the files and add the file ignored files from cake php folder to this
+specially these:
+  /app/Config/database.php
+  /app/tmp
+  /app/webroot/files
+  /lib/Cake/Console/Templates/skel/tmp/
+
+6) update /app/Config/database.php file:
+
+	public $default = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => '127.0.0.1',
+		'login' => 'root',
+		'password' => 'root',
+		'database' => 'jobsin_staging',
+		'prefix' => 'jobsin',
+		'port' => '8889', #'/tmp/mysql.sock',
+		//'encoding' => 'utf8',
+	);
+
+In the above port is important for mac
+- /tmp/mysql.sock ( will use the system installed mysql )
+- 8889 ( will use the MAMP port ) - check step 2
+
+prefix - is each table starting name
+database - is name of the database
+
+7) create an empty database from MAMP php myadmin page
+default : http://localhost:8888/MAMP/?language=English
+open phpmyadmin in it
+
+create and import the dump if any
+
+8) Go to /app/Config/Schema ( this holds the migrations, similar to rails each schema is independent )
+go to console (terminal) at this location:
+  $cd /app
+  $Console/cake schema update -s matt (or) $Console/cake schema update -s 10
+the last value is the schema number or name
+click 'y' when asked
+
+9) open localhost.jobs_in:8888 ( to see the project running )
+
+------------------------------------------------------------------------
+On Ubuntu
+------------------------------------------------------------------------
+http://blog.smalleycreative.com/programming/install-cakephp-on-ubuntu-10-10/

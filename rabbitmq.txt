@@ -1,0 +1,4 @@
+RabbitMQ
+https://www.rabbitmq.com/tutorials/tutorial-one-ruby.html
+http://rubybunny.info/articles/getting_started.html
+https://github.com/ruby-amqp

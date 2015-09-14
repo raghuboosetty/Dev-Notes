@@ -1,0 +1,4 @@
+zsh installation:
+http://ricochen.wordpress.com/2012/09/30/mac-os-x-lion-zsh-installation-with-brew-guide/
+compctl
+http://www.csse.uwa.edu.au/programming/linux/zsh-doc/zsh_20.html

@@ -1,0 +1,26 @@
+http://cheat.errtheblog.com/s/rvm
+
+rvm use ruby-1.8.7-p352@gemset --create
+rvm --rvmrc --create ruby-1.8.7-p352@gemset
+
+
+
+rvm use ruby-2.0.0@gemset --create
+rvm --rvmrc --create ruby-2.0.0@gemset
+
+
+To load rvm with login-bash shell (including server)
+rvm get stable --auto-dotfiles
+
+
+rvm list         # List rubies only
+rvm list gemsets # List rubies and gemsets
+rvm gemset list  # List gemsets for current ruby
+
+
+Temporarily selecting another Ruby or gemset
+--------------------------------------------
+
+    rvm 1.8.7 do gem install rspec      # in the given ruby
+    rvm 1.8.7,1.9.2 do gem install haml # in this two rubies
+    rvm @global do gem install gist     # in @global gemset of current ruby
