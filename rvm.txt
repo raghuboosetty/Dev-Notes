@@ -17,6 +17,9 @@ rvm list         # List rubies only
 rvm list gemsets # List rubies and gemsets
 rvm gemset list  # List gemsets for current ruby
 
+rvm requirements # Check & install latest udpates
+
+rvm head
 
 Temporarily selecting another Ruby or gemset
 --------------------------------------------

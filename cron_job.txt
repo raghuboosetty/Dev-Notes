@@ -1,0 +1,12 @@
+crontab -e
+
+crontab -l       # user specific jobs
+sudo crontab -l  # root user jobs
+
+# cron log
+grep CRON /var/log/syslog
+
+# re/start cron service
+sudo service cron start
+sudo service cron stop
+sudo service cron restart

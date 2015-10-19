@@ -14,6 +14,21 @@ SHOW FULL FIELDS FROM table_name   # display all fields
 SHOW INDEX FROM table_name;        # indexes in a table
 DESCRIBE table_name;               # schema of a table
 
+# reset username/password
+UPDATE mysql.user SET Password=PASSWORD('newpassword') WHERE User='root';
+UPDATE mysql.user SET user='newusername', password=PASSWORD('newpassword') WHERE user='root';
+FLUSH PRIVILEGES;
+
+# create new user with all privileges
+GRANT ALL PRIVILEGES ON database.* To 'user'@'hostname' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+
+# e.g:
+UPDATE mysql.user SET user='pp_root' WHERE user='root';
+GRANT ALL PRIVILEGES ON pops_production.* To 'pp_root'@'localhost' IDENTIFIED BY 'AUVJa7tUL6';
+GRANT ALL PRIVILEGES ON alicia.* To 'pp_root'@'localhost' IDENTIFIED BY 'AUVJa7tUL6';
+
+
 # non-Windows: will pipe the outut through the less command line tool
 pager less -SFX   # set
 nopager           # reset
@@ -72,30 +87,34 @@ SELECT * FROM statistics;
 ------------------------------------------------------------------------
 -- Table/Schema size [KB, MB, GB]
 ------------------------------------------------------------------------
-# Table Schema Size in MB
-SELECT table_schema "Databases", SUM( data_length + index_length) / 1024 / 1024
-"Data Base Size in MB" FROM information_schema.TABLES GROUP BY table_schema ;
-
-# Schema's size in MB table format
-SELECT table_name AS "Table",
-round(((data_length + index_length) / 1024 / 1024), 2) "Size in MB"
-FROM information_schema.TABLES
-WHERE table_schema = "$DB_NAME"
- AND table_name = "$TABLE_NAME";
+# Database Size in MB
+SELECT table_schema AS "Databases", 
+ROUND(SUM(data_length + index_length) / POWER(1024,2), 3) AS "Size (MB)" 
+FROM information_schema.TABLES 
+GROUP BY table_schema;
 
 # Schema's size in GB per database
-SELECT table_schema AS "Database name", SUM(data_length + index_length) / 1024 / 1024 / 1024 AS "Size (GB)" FROM information_schema.TABLES GROUP BY table_schema;
+SELECT table_schema AS "Databases", 
+ROUND(SUM(data_length + index_length) / POWER(1024,3), 3) AS "Size (GB)" 
+FROM information_schema.TABLES 
+GROUP BY table_schema;
 
+# Table's size in MB table format
+SELECT table_name AS "Table",
+ROUND(((data_length + index_length) / POWER(1024, 2), 2) "Size (MB)"
+FROM information_schema.TABLES
+WHERE table_schema = "$DB_NAME"
+AND table_name = "$TABLE_NAME";
 ----------------------------
 -- Example
 ----------------------------
 SELECT (data_length+index_length)/power(1024,3) tablesize_gb FROM information_schema.tables WHERE table_schema='localbiz_staging';
 
 SELECT table_name AS "Table",
-round(((data_length + index_length) / power(1024, 3)), 2) "Size in GB"
+round(((data_length + index_length) / power(1024, 2)), 2) "Size (MB)"
 FROM information_schema.TABLES
-WHERE table_schema = "localbiz_staging"
- AND table_name = "raw_listings";
+WHERE table_schema = "cape_development"
+AND table_name = "reservations";
 
 ------------------------------------------------------------------------
 -- Granting/Revoking Permissions  [ALL]

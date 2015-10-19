@@ -1,7 +1,7 @@
-annotate --exclude tests,fixtures,factories --position after --show-indexes
+annotate --exclude tests,fixtures,factories,serializers --position after --show-indexes
+
+
 annotate --exclude tests,fixtures,factories --position after --show-indexes --model-dir
-
-
 # Miscellaneous samples
 rails g bootstrap:install static --no-coffeescript
 

@@ -31,6 +31,9 @@ zip -r --exclude=*.git* --exclude=*.gitignore* --exclude=*lib* --exclude=*app/Co
 sudo apt-get install landscape-common
 landscape-sysinfo
 
+# server timezone
+date +%Z
+
 ------------------------------------------------------------------------
 Build custom command
 ------------------------------------------------------------------------
