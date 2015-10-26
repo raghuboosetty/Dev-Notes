@@ -4,19 +4,23 @@
 # The script calls 'bounce' script on server
 # 'bounce' is an executable command on server, it has 'stop' and 'start' commands with a 3 seconds delay
 # this script loops over all the production servers and tries to bounce
+#
+# Git commands to ignore localchanges
+# git update-index --assume-unchanged <file>
+# git update-index --no-assume-unchanged <file>
 
 require 'rubygems'
 require 'net/ssh'
 
 class Bounce
-  def initialize(uname, password, command="bounce")
+  def initialize(uname, password, command="source ~/.profile ; bounce")
     @command  = command
     @uname    = uname
     @password = password
     @options  = {
                   port: 2222,
                   keys: [ "~/.ssh/id_rsa_cnp" ] }
-    @ips      = {  }
+    @ips      = { }
   end
 
   def confirm!
@@ -27,8 +31,9 @@ class Bounce
 
   def start
     @ips.each do |name, ip|
-      puts name
       result = []
+      puts name
+      sleep 3
       Net::SSH.start(ip, @uname, @options) do |ssh|
          ssh.open_channel do |channel|
            channel.request_pty do |c, success|
@@ -52,6 +57,6 @@ class Bounce
 
 end # Bounce
 
-bounce = Bounce.new("uname", "password", "sudo free -m | grep Mem:")
+bounce = Bounce.new("uname", "password")
 bounce.confirm!
 bounce.start
