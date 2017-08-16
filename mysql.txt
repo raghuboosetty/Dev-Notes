@@ -61,7 +61,18 @@ FROM raw_listings_old;
 # Delete
 TRUNCATE TABLE table_name;  # empty
 DROP TABLE table_name;      # destroy
+------------------------------------------------------------------------
+-- Dump and Load Mysql
+------------------------------------------------------------------------
+# take dump
+mysqldump -u username -p password database_name > database_dump.sql
+# with no data/ just schema
+mysqldump -u username -p password database_name > database_dump.sql  --no-data
 
+# import dump
+mysql -u username -p password database_name < database_dump.sql
+# multi-thread import
+mysqlimport -u username -p password database_name < database_dump.sql
 ------------------------------------------------------------------------
 -- Row Count [All tables]
 ------------------------------------------------------------------------
@@ -88,15 +99,15 @@ SELECT * FROM statistics;
 -- Table/Schema size [KB, MB, GB]
 ------------------------------------------------------------------------
 # Database Size in MB
-SELECT table_schema AS "Databases", 
-ROUND(SUM(data_length + index_length) / POWER(1024,2), 3) AS "Size (MB)" 
-FROM information_schema.TABLES 
+SELECT table_schema AS "Databases",
+ROUND(SUM(data_length + index_length) / POWER(1024,2), 3) AS "Size (MB)"
+FROM information_schema.TABLES
 GROUP BY table_schema;
 
 # Schema's size in GB per database
-SELECT table_schema AS "Databases", 
-ROUND(SUM(data_length + index_length) / POWER(1024,3), 3) AS "Size (GB)" 
-FROM information_schema.TABLES 
+SELECT table_schema AS "Databases",
+ROUND(SUM(data_length + index_length) / POWER(1024,3), 3) AS "Size (GB)"
+FROM information_schema.TABLES
 GROUP BY table_schema;
 
 # Table's size in MB table format
@@ -134,21 +145,21 @@ revoke usage on *.* from 'root'@'54.212.95.101';
 SHOW VARIABLES LIKE 'performance_schema';
 
 # Enable SlowQueryLog
-set global slow_query_log = 'ON';
-set global log_queries_not_using_indexes = 'ON';
-set global slow_query_log_file ='/var/log/mysql/slow-query.log';
-set global long_query_time = '20';
+set GLOBAL slow_query_log = 'ON';
+set GLOBAL log_queries_not_using_indexes = 'ON';
+set GLOBAL slow_query_log_file ='/var/log/mysql/slow-query.log';
+set GLOBAL long_query_time = '10'; # in seconds
 show variables like '%slow%';
 
 # Check SlowQuery
-mysqldumpslow /var/log/mysql/mysql-slow.log
+mysqldumpslow /var/log/mysql/slow-query.log
 
 # General Query and Checking
 SET global general_log = 1;
 
 # Dump slow queries to logs
-mysqldumpslow -a -s r -t 5 /var/log/mysql/mysql-slow.log
-mysqldumpslow -a -s c -t 5 /var/log/mysql/mysql-slow.log
+mysqldumpslow -a -s r -t 5 /var/log/mysql/slow-query.log
+mysqldumpslow -a -s c -t 5 /var/log/mysql/slow-query.log
 
 # Flush logs:
 sudo mv /var/lib/mysql/ip-10-197-143-124-slow.log /var/lib/mysql/ip-10-197-143-124-slow-old.log  # from terminal
@@ -290,6 +301,11 @@ mysql.server start
 
 Optional step: If you've created etc/my.cnf file then take a backup of that file or remove it and then try to restart. It should work!
 
+-----------------------------------------------------------------------
+An error occurred while installing mysql2 (0.3.21), and Bundler cannot continue.
+-----------------------------------------------------------------------
+bundle config --local build.mysql2 "--with-ldflags=-L/usr/local/opt/openssl/lib --with-cppflags=-I/usr/local/opt/openssl/include"
+
 
 ------------------------------------------------------------------------
 -- Config file [my.cnf]
@@ -306,6 +322,10 @@ ls $(brew --prefix mysql)/support-files/my-*                               # to 
 sudo cp $(brew --prefix mysql)/support-files/my-default.cnf /etc/my.cnf    # copy default cnf to etc/
 
 # add server_id for master/slave error
+1. copy default-my.cnf to /etc/my.cnf
+2. enable server_id with 'server_id = 2’
+3. save and import the dump
+4. remove my.cnf
 
 
 ------------------------------------------------------------------------

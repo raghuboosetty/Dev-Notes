@@ -6,8 +6,7 @@ tar xzf redis-2.8.9.tar.gz
 cd redis-2.8.9
 make
 sudo make install
-cd utils
-sudo ./install_server.sh
+sudo utils/install_server.sh
 
 # start/stop
 sudo service redis_6379 start
@@ -18,3 +17,4 @@ sudo service redis-server restart
 
 # references
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
+# http://www.manniwood.com/redis_30_compile_install_howto/index.html

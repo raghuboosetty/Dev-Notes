@@ -8,10 +8,13 @@ Keys
 ⇪ – Capslock ––––––––– &#x21ea; – &#8682;
 ⏎ – Return ––––––––––– &#x23ce; – &#9166;
 ⌫ – Delete/Backspace – &#x232b; – &#9003;
+^ - Control Key
 
 ------------------------------------------------------------------------
 Commands
 ------------------------------------------------------------------------
+Shift + ? - open keyboard shortcuts
+
 # Hide/Show login users
 # https://support.apple.com/en-us/HT203998
 sudo dscl . create /Users/postgres IsHidden 1
@@ -38,6 +41,14 @@ shift + fn + delete   # remove input fields auto-suggest
 # Skype login multiple accounts
 cd /Applications/Skype.app/Contents/MacOS/ # Open a Terminal window
 sudo ./Skype                               # starts skype with root user
+
+# Clipboard
+Cmd-Shift-V       # Paste Previous
+Cmd-Option-V      # Paste Next
+Cmd-Option-Ctrl-V # Show History
+
+# Multiple word select
+ctrl + W
 
 ------------------------------------------------------------------------
 Macvim [Install]
@@ -88,3 +99,11 @@ Warnings
 ------------------------------------------------------------------------
 # brew warning: Insecure world writable dir /usr/local/Cellar
 chmod go-w /usr/local/Cellar/mysql
+
+
+------------------------------------------------------------------------
+To uninstall Pow, `curl get.pow.cx/uninstall.sh | sh`
+
+
+# disable spotlight
+sudo mdutil -a -i off

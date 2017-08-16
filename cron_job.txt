@@ -10,3 +10,99 @@ grep CRON /var/log/syslog
 sudo service cron start
 sudo service cron stop
 sudo service cron restart
+
+---------------------------------------------------------------
+
+# gemfile
+gem 'whenever', require: false
+
+# wheneveize
+cd /apps/<my-great-project>
+wheneverize .
+
+# sample snippet for config/schedule.rb
+every 1.day, at: '4:30 am' do
+  runner "MyModel.task_to_run_at_four_thirty_in_the_morning"
+end
+
+# in deploy script snippet(config.deploy.rb)
+  desc "Update the crontab file"
+    task :update_crontab, roles: :db do
+    run "cd #{release_path}; bundle exec whenever --set environment=#{rails_env} --update-crontab #{application}_#{rails_env}"
+  end
+
+# top of the deploy script(config/deploy.rb)
+set :output, error: 'log/cron_error.log', standard: 'log/cron.log'
+
+# commands to check the working of the cron job
+# if cron jobs are working fine then either the error or log should be written to
+tail -500 log/cron.log
+# or
+tail -500 log/cron_error.log
+
+# if the files are not created or the files are empty then
+# check with sys log
+tail -500 /var/log/syslog
+# or
+grep CRON /var/log/syslog
+
+# if the log doesn’t have any traces of Cron then, run manually on sever
+# e.g:
+bundle exec whenever --set environment=staging --update-crontab localbiz_staging
+
+
+# if the cron traces are found in the log and its running fine but it has this(below) at the end of each execution, then:
+(CRON) info (No MTA installed, discarding output)
+# install postfix( this will save the email as per configured )
+sudo apt install postfix
+# no when the cron job runs it will save the email to /var/mail/ubuntu
+sudo vi /var/mail/ubuntu
+# e.g:
+# /bin/bash: log/cron_error.log: Permission denied
+
+# don’t create cron log files manually, they have different permissions.
+# if log files have write permissions then it will write to log/cron.log  or log/cron_error.log
+# if the permission or file is not created then, it will save the email to /var/mail/ubuntu
+
+# command to restart cron
+sudo service cron restart
+
+# command to kill a cron job that is struck
+ps aux
+- find the cronjob that is struck
+kill 6577
+
+
+
+Additional
+# Add task wrap for scheduling the tasks. This way we can check if the cron job is working via browser
+e.g:
+runner 'TaskStat.wrap("Crawler: crawling schedule"){ CrawlerQueue.schedule }'
+
+FullSetup of TaskWrap (Raw data, directly copy paste)
+# db/migrate/create_task_stats.rb
+https://github.com/seocore/localbiz/blob/master/localbiz/db/migrate/20140517040549_create_task_stats.rb
+
+# app/models/task_stat.rb
+https://github.com/seocore/localbiz/blob/master/localbiz/app/models/task_stat.rb
+
+# app/controllers/admin/task_stats_controller.rb
+https://github.com/seocore/localbiz/blob/master/localbiz/app/controllers/admin/task_stats_controller.rb
+
+# app/views/admin/task_stats
+https://github.com/seocore/localbiz/tree/master/localbiz/app/views/admin/task_stats
+
+# if project not found on git, then refer anyone of the following
+# Brandrep, Jobsin, Localbiz
+
+
+
+Commands in short for debugging:
+sudo apt-get install postfix
+tail -100 /var/mail/ubuntu
+tail -100 /var/log/syslog
+tail -100 /var/log/auth.log
+tail -100 log/cron.log
+tail -100 log/cron_error.log
+grep CRON /var/log/syslog
+bundle exec whenever --set environment=staging --update-crontab localbiz_staging

@@ -1,0 +1,629 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title The Official Home of YIFY Movies Torrent Download - YTS
+    %meta{:charset => "utf-8"}/
+    /[if IE] <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    %meta{:content => "width=device-width, minimal-ui, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %meta{:content => "The official YTS YIFY Movies Torrents website. Download free yify movies torrents in 720p, 1080p and 3D quality. The fastest downloads at the smallest size.", :name => "description"}/
+    %meta{:content => "yts, yify, yify movies, yts movies, yts torrents, yify movies, yify torrents", :name => "keywords"}/
+    %meta{:content => "The Official Home of YIFY Movies Torrent Download - YTS", :property => "og:title"}/
+    %meta{:content => "https://yts.ag/assets/images/website/og_yts_logo.png", :property => "og:image"}/
+    %meta{:content => "The official YTS YIFY Movies Torrents website. Download free yify movies torrents in 720p, 1080p and 3D quality. The fastest downloads at the smallest size.", :property => "og:description"}/
+    %meta{:content => "https://yts.ag/", :property => "og:url"}/
+    /[if IE] <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    %link{:href => "/assets/images/website/favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-57x57.png", :rel => "apple-touch-icon", :sizes => "57x57"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-144x144.png", :rel => "apple-touch-icon", :sizes => "144x144"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-60x60.png", :rel => "apple-touch-icon", :sizes => "60x60"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-120x120.png", :rel => "apple-touch-icon", :sizes => "120x120"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-76x76.png", :rel => "apple-touch-icon", :sizes => "76x76"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-152x152.png", :rel => "apple-touch-icon", :sizes => "152x152"}/
+    %link{:href => "/assets/images/website/apple-touch-icon-180x180.png", :rel => "apple-touch-icon", :sizes => "180x180"}/
+    %link{:href => "/assets/images/website/favicon-160x160.png", :rel => "icon", :sizes => "160x160", :type => "image/png"}/
+    %link{:href => "/assets/images/website/favicon-96x96.png", :rel => "icon", :sizes => "96x96", :type => "image/png"}/
+    %link{:href => "/assets/images/website/favicon-16x16.png", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
+    %link{:href => "/assets/images/website/favicon-32x32.png", :rel => "icon", :sizes => "32x32", :type => "image/png"}/
+    %meta{:content => "#00a300", :name => "msapplication-TileColor"}/
+    %meta{:content => "/assets/images/website/mstile-144x144.png", :name => "msapplication-TileImage"}/
+    %meta{:content => "/assets/images/website/browserconfig.xml", :name => "msapplication-config"}/
+    %link{:href => "/opensearch", :rel => "search", :title => "YTS - The Official Home of YIFY Movie Torrent Downloads", :type => "application/opensearchdescription+xml"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic&subset=latin,latin-ext", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/fonts/fonts.css", :rel => "stylesheet"}/
+    %link{:href => "/assets/minified/bacb5de663bc55f0cbed2b4a7d1504dc.css", :rel => "stylesheet"}/
+  %body.non-touch
+    :javascript
+      (function(i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          i[r] = i[r] || function() {
+              (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+          a = s.createElement(o),
+              m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-69675816-1', 'auto');
+      ga('send', 'pageview');
+    %header.nav-bar
+      .nav-logo.pull-left
+        %a{:href => "https://yts.ag/"}
+          %img{:alt => "YTS YIFY", :src => "https://yts.ag/assets/images/website/logo-YTS.svg"}/
+      %span.header-slogan.hidden-xs.pull-left HD movies at the smallest file size.
+      .main-nav-links.hidden-sm.hidden-xs
+        %form#quick-search{"accept-charset" => "UTF-8", :action => "https://yts.ag/search-movies", :method => "GET", :name => "quick-search"}
+          #quick-search-container
+            %input#quick-search-input{:autocomplete => "off", :name => "query", :type => "search", :value => "Quick search"}/
+            .ajax-spinner
+        %ul.nav-links
+          %li
+            %a{:href => "https://yts.ag/"} Home
+          %li
+            %a{:href => "https://yts.ag/browse-movies"} Browse Movies
+        %ul.nav-links.nav-link-guest
+          %li
+            %a.login-nav-btn{:href => "javascript:void(0)"} Login
+             | 
+            %a.register-nav-btn{:href => "javascript:void(0)"} Register
+      .nav-mobile-buttons.hidden-md.hidden-lg
+        %a#mobile-search-btn.touchable{:href => "javascript:void(0)"}
+          %span.glyphicon.glyphicon-search
+        %a.touchable{:href => "https://yts.ag/browse-movies"}
+          %span.glyphicon.glyphicon-list-alt
+        %a.touchable{:href => "https://yts.ag/login"}
+          %span.glyphicon.glyphicon-user
+    #background-image{:style => "background: url(/assets/images/movies/trolls_2016/background.jpg) no-repeat center center; background-size: cover; -webkit-background-size: cover;-moz-background-size: cover; -o-background-size: cover;"}
+    #background-overlay
+    .modal.modal-auth.hidden-xs.hidden-sm
+      .modal-container
+        .modal-switcher
+          %span#modal-login Login
+          %span#modal-register Register
+        .modal-content
+          .modal-login-content
+            %form{"accept-charset" => "UTF-8", :action => "https://yts.ag/", :autocapitalize => "off", :autocorrect => "off", :method => "POST", :spellcheck => "off"}
+              %input{:name => "_token", :type => "hidden", :value => "5Vsj4rOZCMfjkM0xlHYsRx2mEprlxRFY00QpuxLp"}/
+              %span.error-msg
+              .inner-addon
+                %span.glyphicon.glyphicon-user
+                %input{:autocapitalize => "off", :autocorrect => "off", :name => "username", :placeholder => "Username or Email", :spellcheck => "off", :type => "text"}/
+              .inner-addon
+                %span.glyphicon.glyphicon-lock
+                %input{:autocapitalize => "off", :autocorrect => "off", :name => "password", :placeholder => "Password", :spellcheck => "off", :type => "password", :value => ""}/
+              %button.button-green-download2-big{:type => "button"} Login
+            %p.bottom-msg
+              %a.forgotpassword-nav-btn{:href => "javascript:void(0)"} Forgot your password? / Resend Activation
+          .modal-register-content
+            %form{"accept-charset" => "UTF-8", :action => "https://yts.ag/", :autocapitalize => "off", :autocomplete => "off", :autocorrect => "off", :method => "POST", :spellcheck => "off"}
+              %input{:name => "_token", :type => "hidden", :value => "5Vsj4rOZCMfjkM0xlHYsRx2mEprlxRFY00QpuxLp"}/
+              %span.error-msg
+              .inner-addon
+                %span.glyphicon.glyphicon-user
+                %input{:autocapitalize => "off", :autocomplete => "off", :autocorrect => "off", :name => "username", :placeholder => "Username", :spellcheck => "off", :type => "text"}/
+              .inner-addon
+                %span.glyphicon.glyphicon-envelope
+                %input{:autocapitalize => "off", :autocomplete => "off", :autocorrect => "off", :name => "email", :placeholder => "E-Mail", :spellcheck => "off", :type => "email"}/
+              .inner-addon
+                %span.glyphicon.glyphicon-lock
+                %input{:autocapitalize => "off", :autocomplete => "off", :autocorrect => "off", :name => "password", :placeholder => "Password", :spellcheck => "off", :type => "password", :value => ""}/
+              .inner-addon
+                %span.glyphicon.glyphicon-lock
+                %input{:autocapitalize => "off", :autocomplete => "off", :autocorrect => "off", :name => "password_confirmation", :placeholder => "Confirm Password", :spellcheck => "off", :type => "password", :value => ""}/
+              %button.button-green-download2-big{:type => "button"} Register
+          .modal-forgotpass-content
+            %form{"accept-charset" => "UTF-8", :action => "https://yts.ag/", :autocapitalize => "off", :autocomplete => "off", :autocorrect => "off", :method => "POST", :spellcheck => "off"}
+              %input{:name => "_token", :type => "hidden", :value => "5Vsj4rOZCMfjkM0xlHYsRx2mEprlxRFY00QpuxLp"}/
+              %span.error-msg
+              %p.info-msg If you have Forgotten your password or you want to send you again the activation link, just type in your Email and we will send you a link to Reset your password or Activate your account.
+              .inner-addon
+                %span.glyphicon.glyphicon-envelope
+                %input{:autocapitalize => "off", :autocomplete => "off", :autocorrect => "off", :name => "email", :placeholder => "E-Mail", :spellcheck => "off", :type => "email"}/
+              %button.button-green-download2-big{:type => "button"} Reset Password | Resend Activation
+            %p.bottom-msg
+              %a.login-nav-btn{:href => "javascript:void(0)"} Back to login
+          .modal-activate-account-content
+            %p.info-msg
+              %b Thanks for signing up!
+              %br/
+              Please check your email and click the link to
+              %b Activate Your Account
+              in the message we just sent to your e-mail address.
+              %br/
+              %br/
+              Once your account is activated, we'll send you an email with some information to help you get started with YTS.AG.
+          .modal-loading-content
+            %img{:alt => "ajax spinner loading", :src => "/assets/images/website/ajax-spinner.gif"}/
+            %p.info-msg Loading, please wait
+    .main-content
+      #mobile-search-input.hidden-md.hidden-lg
+        %form{"accept-charset" => "UTF-8", :action => "https://yts.ag/search-movies", :method => "POST"}
+          %input{:name => "_token", :type => "hidden", :value => "5Vsj4rOZCMfjkM0xlHYsRx2mEprlxRFY00QpuxLp"}/
+          .input-group.container.search-query
+            %input.form-control{:autocomplete => "off", :autocorrect => "off", :name => "keyword", :placeholder => "Search for a movie…", :type => "search"}/
+            %span.input-group-btn
+              %button.btn.btn-success{:type => "submit"} Search
+          .container
+            .row
+              .col-xs-10
+                .selects-container
+                  %p Quality:
+                  %select{:name => "quality"}
+                    %option{:selected => "selected", :value => "all"} All
+                    %option{:value => "720p"} 720p
+                    %option{:value => "1080p"} 1080p
+                    %option{:value => "3D"} 3D
+                .selects-container
+                  %p Genre:
+                  %select{:name => "genre"}
+                    %option{:selected => "selected", :value => "all"} All
+                    %option{:value => "action"} Action
+                    %option{:value => "adventure"} Adventure
+                    %option{:value => "animation"} Animation
+                    %option{:value => "biography"} Biography
+                    %option{:value => "comedy"} Comedy
+                    %option{:value => "crime"} Crime
+                    %option{:value => "documentary"} Documentary
+                    %option{:value => "drama"} Drama
+                    %option{:value => "family"} Family
+                    %option{:value => "fantasy"} Fantasy
+                    %option{:value => "film-noir"} Film-Noir
+                    %option{:value => "game-show"} Game-Show
+                    %option{:value => "history"} History
+                    %option{:value => "horror"} Horror
+                    %option{:value => "music"} Music
+                    %option{:value => "musical"} Musical
+                    %option{:value => "mystery"} Mystery
+                    %option{:value => "news"} News
+                    %option{:value => "reality-tv"} Reality-TV
+                    %option{:value => "romance"} Romance
+                    %option{:value => "sci-fi"} Sci-Fi
+                    %option{:value => "sport"} Sport
+                    %option{:value => "talk-show"} Talk-Show
+                    %option{:value => "thriller"} Thriller
+                    %option{:value => "war"} War
+                    %option{:value => "western"} Western
+              .col-xs-10
+                .selects-container
+                  %p Rating:
+                  %select{:name => "rating"}
+                    %option{:selected => "selected", :value => "0"} All
+                    %option{:value => "9"} 9+
+                    %option{:value => "8"} 8+
+                    %option{:value => "7"} 7+
+                    %option{:value => "6"} 6+
+                    %option{:value => "5"} 5+
+                    %option{:value => "4"} 4+
+                    %option{:value => "3"} 3+
+                    %option{:value => "2"} 2+
+                    %option{:value => "1"} 1+
+                .selects-container.selects-container-last
+                  %p Order By:
+                  %select{:name => "order_by"}
+                    %option{:selected => "selected", :value => "latest"} Latest
+                    %option{:value => "oldest"} Oldest
+                    %option{:value => "seeds"} Seeds
+                    %option{:value => "peers"} Peers
+                    %option{:value => "year"} Year
+                    %option{:value => "rating"} Rating
+                    %option{:value => "likes"} Likes
+                    %option{:value => "alphabetical"} Alphabetical
+                    %option{:value => "downloads"} Downloads
+      .ac-results.hidden-sm.hidden-xs
+        %ul
+      %noscript
+        .container
+          .row
+            .col-xs-20.text-center
+              %p.no-javascript-warning Javascript not supported on your browser, please enable Javascript in order to fully utilize the website
+      %script{:src => "https://code.jquery.com/jquery-1.12.4.min.js", :type => "text/javascript"}
+      %link{:href => "/download-overlay.css", :rel => "stylesheet"}/
+      %script{:src => "/download-overlay.js", :type => "text/javascript"}
+      :css
+        .banner-bordered {
+            background-color: black;
+            border: 5px solid #75c74e;
+            padding: 0 50px 5px 50px;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .banner-bordered h1,
+        .banner-bordered p {
+            color: white;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .banner-bordered p {
+            line-height: 30px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+        .banner-bordered .title {
+            margin-top: 5px;
+            width: 80%;
+            border-bottom: 1px solid grey;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5px;
+        }
+        .banner-bordered .title h1 {
+            font-size: 40px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .banner-bordered .title h1:before {
+            content: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/898049/mail.png");
+            padding-right: 20px;
+        }
+        .banner-bordered .title img {
+            position: relative;
+            top: 65px;
+            left: 175px;
+        }
+        .banner-bordered .blue {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #4c96d0;
+        }
+        .banner-bordered a {
+            text-decoration: none;
+        }
+        .banner-bordered .button {
+            background-color: #75c74e;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        .banner-bordered .button img {
+            float: left;
+            margin-top: 8px;
+            margin-left: 22px;
+        }
+        .banner-bordered .button p {
+            padding: 3px 0;
+            text-shadow: 2px 2px #4b9924;
+            font-weight: bold;
+        }
+      .container.home-content
+        .hidden-xs.hidden-sm
+          %h1 Download YTS YIFY movies: HD smallest size
+          %p
+            Welcome to the official YTS website. Here you will be able to browse and download YIFY movies in excellent 720p, 1080p and 3D quality, all at the smallest file size. Only here: YTS Movies Torrents.
+            %br/
+            %br/
+            %a{:href => "https://yts.ag/blog/yts-ag-is-the-real-yts-domain-for-a-new-yify-group", :title => "YTS.AG is the REAL YTS domain for a new YIFY group"}
+              %b IMPORTANT - YTS.AG is the REAL YTS domain for a new YIFY group
+            |
+            %a{:href => "https://yts.ag/blog/yts-ag-yify-registrations-are-open", :title => "YTS.AG / YIFY registrations are open!"}
+              %b Registrations are open!
+        #popular-downloads
+          .row
+            %h2
+              %span.icon-star>
+              Popular Downloads
+              %a{:href => "https://yts.ag/rss-guide"}
+                %img{:alt => "RSS", :height => "24", :src => "/assets/images/website/rss-icon.png", :title => "RSS", :width => "24"}/
+          .row
+            .browse-movie-wrap.col-xs-10.col-sm-5
+              %a.browse-movie-link{:href => "https://yts.ag/movie/trolls-2016"}
+                %figure
+                  %img.img-responsive{:alt => "Trolls (2016) download", :height => "315", :src => "/assets/images/movies/trolls_2016/medium-cover.jpg", :width => "210"}/
+                  %figcaption.hidden-xs.hidden-sm
+                    %span.icon-star
+                    %h4.rating 6.5 / 10
+                    %h4 Adventure
+                    %h4 Animation
+                    %span.button-green-download2-big View Details
+              .browse-movie-bottom
+                %a.browse-movie-title{:href => "https://yts.ag/movie/trolls-2016"} Trolls
+                .browse-movie-year 2016
+                .browse-movie-tags
+                  %a{:href => "https://yts.ag/torrent/download/1A648445F763B899075D8FC775ACA28CAC1AD2C5", :rel => "nofollow", :title => "Download Trolls 720p Torrent"} 720p
+                  %a{:href => "https://yts.ag/torrent/download/0E8E845BF545BFCE6A53C616483815453B26B89D", :rel => "nofollow", :title => "Download Trolls 1080p Torrent"} 1080p
+            .browse-movie-wrap.col-xs-10.col-sm-5
+              %a.browse-movie-link{:href => "https://yts.ag/movie/jack-reacher-never-go-back-2016"}
+                %figure
+                  %img.img-responsive{:alt => "Jack Reacher: Never Go Back (2016) download", :height => "315", :src => "/assets/images/movies/jack_reacher_never_go_back_2016/medium-cover.jpg", :width => "210"}/
+                  %figcaption.hidden-xs.hidden-sm
+                    %span.icon-star
+                    %h4.rating 6.1 / 10
+                    %h4 Action
+                    %h4 Adventure
+                    %span.button-green-download2-big View Details
+              .browse-movie-bottom
+                %a.browse-movie-title{:href => "https://yts.ag/movie/jack-reacher-never-go-back-2016"} Jack Reacher: Never Go Back
+                .browse-movie-year 2016
+                .browse-movie-tags
+                  %a{:href => "https://yts.ag/torrent/download/6BA528A60AB22E9F037611693356211BB9AA76E8", :rel => "nofollow", :title => "Download Jack Reacher: Never Go Back 720p Torrent"} 720p
+                  %a{:href => "https://yts.ag/torrent/download/2866AC87A65D6D1D690D5E0085D8B688623A4238", :rel => "nofollow", :title => "Download Jack Reacher: Never Go Back 1080p Torrent"} 1080p
+            .browse-movie-wrap.col-xs-10.col-sm-5
+              %a.browse-movie-link{:href => "https://yts.ag/movie/ouija-origin-of-evil-2016"}
+                %figure
+                  %img.img-responsive{:alt => "Ouija: Origin of Evil (2016) download", :height => "315", :src => "/assets/images/movies/ouija_origin_of_evil_2016/medium-cover.jpg", :width => "210"}/
+                  %figcaption.hidden-xs.hidden-sm
+                    %span.icon-star
+                    %h4.rating 6.2 / 10
+                    %h4 Horror
+                    %h4 Thriller
+                    %span.button-green-download2-big View Details
+              .browse-movie-bottom
+                %a.browse-movie-title{:href => "https://yts.ag/movie/ouija-origin-of-evil-2016"} Ouija: Origin of Evil
+                .browse-movie-year 2016
+                .browse-movie-tags
+                  %a{:href => "https://yts.ag/torrent/download/C2496152A89CB079636391BA71A57251E91E253B", :rel => "nofollow", :title => "Download Ouija: Origin of Evil 720p Torrent"} 720p
+                  %a{:href => "https://yts.ag/torrent/download/E226238E7E115251CE4B5E64B7B52B6B7E5797D8", :rel => "nofollow", :title => "Download Ouija: Origin of Evil 1080p Torrent"} 1080p
+            .browse-movie-wrap.col-xs-10.col-sm-5
+              %a.browse-movie-link{:href => "https://yts.ag/movie/inferno-2016"}
+                %figure
+                  %img.img-responsive{:alt => "Inferno (2016) download", :height => "315", :src => "/assets/images/movies/inferno_2016/medium-cover.jpg", :width => "210"}/
+                  %figcaption.hidden-xs.hidden-sm
+                    %span.icon-star
+                    %h4.rating 6.2 / 10
+                    %h4 Action
+                    %h4 Adventure
+                    %span.button-green-download2-big View Details
+              .browse-movie-bottom
+                %a.browse-movie-title{:href => "https://yts.ag/movie/inferno-2016"} Inferno
+                .browse-movie-year 2016
+                .browse-movie-tags
+                  %a{:href => "https://yts.ag/torrent/download/23C0625C34F83E82415BF947CB7216B17B17A04E", :rel => "nofollow", :title => "Download Inferno 720p Torrent"} 720p
+                  %a{:href => "https://yts.ag/torrent/download/55D6FBB9E49561FB0E793E6E40F9528F5D941BAF", :rel => "nofollow", :title => "Download Inferno 1080p Torrent"} 1080p
+        .hidden-xs.hidden-sm
+          .banner-bordered
+            .title
+              %h1 Before You Download...
+            %p
+              Torrenting online is getting increasingly risky for users, and top sites are being shut down daily due to users IPs being tracked by their
+              %b ISP
+              and
+              = succeed "." do
+                %b Government Agencies
+              = succeed "," do
+                %b Malicious Content
+              %b FREE
+              diagnostic. Once clean, you can use their
+              %b VPN
+              to stay protected and fully hidden while Torrenting online.
+            %p.blue
+              Don't risk it! Download Free and check for yourself. (William)
+            %a{"data-download-brand" => "pcprotect", :href => "/get-pp", :rel => "noindex, nofollow"}
+              .button
+                %img{:src => "https://s3-us-west-2.amazonaws.com/s.cdpn.io/898049/download.png"}/
+                %p Download Free
+      .content-dark
+        .container.home-content
+          .home-movies
+            .row
+              %h2
+                Latest YIFY Movies Torrents
+                %a{:href => "https://yts.ag/browse-movies"} Browse All
+            .row
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/billy-lynns-long-halftime-walk-2016"}
+                  %figure
+                    %img.img-responsive{:alt => "Billy Lynn's Long Halftime Walk (2016) download", :height => "315", :src => "/assets/images/movies/billy_lynns_long_halftime_walk_2016/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "Billy Lynn's Long Halftime Walk (2016) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 6.9 / 10
+                      %h4 Drama
+                      %h4 War
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/billy-lynns-long-halftime-walk-2016"} Billy Lynn's Long Halftime Walk
+                  .browse-movie-year 2016
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/EB8724DD41839DA4D3E7A9D3191FD6443F34C6B1", :rel => "nofollow", :title => "Download Billy Lynn's Long Halftime Walk 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/51D634C2CF4AA5E1A232A511596C43B477425B07", :rel => "nofollow", :title => "Download Billy Lynn's Long Halftime Walk 1080p Torrent"} 1080p
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/war-on-everyone-2016"}
+                  %figure
+                    %img.img-responsive{:alt => "War on Everyone (2016) download", :height => "315", :src => "/assets/images/movies/war_on_everyone_2016/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "War on Everyone (2016) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 6 / 10
+                      %h4 Comedy
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/war-on-everyone-2016"} War on Everyone
+                  .browse-movie-year 2016
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/29D225B5A155FBB4F27E6C489FD2C7EC3FCFCC8B", :rel => "nofollow", :title => "Download War on Everyone 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/F929F73CBD20D221781708FB75C3448A92FBD1C6", :rel => "nofollow", :title => "Download War on Everyone 1080p Torrent"} 1080p
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/the-high-schoolers-guide-to-college-parties-2015"}
+                  %figure
+                    %img.img-responsive{:alt => "The High Schooler's Guide to College Parties (2015) download", :height => "315", :src => "/assets/images/movies/the_high_schoolers_guide_to_college_parties_2015/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "The High Schooler's Guide to College Parties (2015) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 4.3 / 10
+                      %h4 Comedy
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/the-high-schoolers-guide-to-college-parties-2015"} The High Schooler's Guide to College Parties
+                  .browse-movie-year 2015
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/0AD53D8A9FBF900A7AF13A75B270EFC7887A6985", :rel => "nofollow", :title => "Download The High Schooler's Guide to College Parties 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/16D7AE986D9D65CB0BF1B296DA7315479378CA3E", :rel => "nofollow", :title => "Download The High Schooler's Guide to College Parties 1080p Torrent"} 1080p
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/the-9th-life-of-louis-drax-2016"}
+                  %figure
+                    %img.img-responsive{:alt => "The 9th Life of Louis Drax (2016) download", :height => "315", :src => "/assets/images/movies/the_9th_life_of_louis_drax_2016/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "The 9th Life of Louis Drax (2016) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 6.3 / 10
+                      %h4 Mystery
+                      %h4 Thriller
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/the-9th-life-of-louis-drax-2016"} The 9th Life of Louis Drax
+                  .browse-movie-year 2016
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/9B123CDF3690090E165AED66D2CABD600855219C", :rel => "nofollow", :title => "Download The 9th Life of Louis Drax 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/5FED8E1FBF362F6D3CA250649DBC1F32054DE308", :rel => "nofollow", :title => "Download The 9th Life of Louis Drax 1080p Torrent"} 1080p
+            .row
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/american-pastoral-2016"}
+                  %figure
+                    %img.img-responsive{:alt => "American Pastoral (2016) download", :height => "315", :src => "/assets/images/movies/american_pastoral_2016/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "American Pastoral (2016) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 6.1 / 10
+                      %h4 Crime
+                      %h4 Drama
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/american-pastoral-2016"} American Pastoral
+                  .browse-movie-year 2016
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/1AD001509A762AD98DF9B4353EB5E4775E28F244", :rel => "nofollow", :title => "Download American Pastoral 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/398F7E0A3273170592F66064416A9D82CFCEF256", :rel => "nofollow", :title => "Download American Pastoral 1080p Torrent"} 1080p
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/justice-league-dark-2017"}
+                  %figure
+                    %img.img-responsive{:alt => "Justice League Dark (2017) download", :height => "315", :src => "/assets/images/movies/justice_league_dark_2017/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "Justice League Dark (2017) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 7.3 / 10
+                      %h4 Action
+                      %h4 Animation
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/justice-league-dark-2017"} Justice League Dark
+                  .browse-movie-year 2017
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/92B1CD3B2EF895ED3C1A29749A5B7654C5294537", :rel => "nofollow", :title => "Download Justice League Dark 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/0EEB7D86EE9544BCCAB15D18DF65144BB4D4FA20", :rel => "nofollow", :title => "Download Justice League Dark 1080p Torrent"} 1080p
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/phantasm-1979"}
+                  %figure
+                    %img.img-responsive{:alt => "Phantasm (1979) download", :height => "315", :src => "/assets/images/movies/phantasm_1979/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "Phantasm (1979) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 6.9 / 10
+                      %h4 Fantasy
+                      %h4 Horror
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/phantasm-1979"} Phantasm
+                  .browse-movie-year 1979
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/D14290172F7AFCA1A30D2B1269E2EF3D1F735FF3", :rel => "nofollow", :title => "Download Phantasm 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/1625EF57B4766C8E55CE8681FC70FE54B13438D7", :rel => "nofollow", :title => "Download Phantasm 1080p Torrent"} 1080p
+              .browse-movie-wrap.col-xs-10.col-sm-5
+                %a.browse-movie-link{:href => "https://yts.ag/movie/hands-of-steel-1986"}
+                  %figure
+                    %img.img-responsive{:alt => "Hands of Steel (1986) download", :height => "315", :src => "/assets/images/movies/hands_of_steel_1986/medium-cover.jpg", :width => "210"}/
+                    %img.quality-banner.img-responsive{:alt => "Hands of Steel (1986) download 1080p", :height => "91", :src => "/assets/images/website/banner1080p.png", :width => "118"}/
+                    %figcaption.hidden-xs.hidden-sm
+                      %span.icon-star
+                      %h4.rating 5.4 / 10
+                      %h4 Action
+                      %h4 Sci-Fi
+                      %span.button-green-download2-big View Details
+                .browse-movie-bottom
+                  %a.browse-movie-title{:href => "https://yts.ag/movie/hands-of-steel-1986"} Hands of Steel
+                  .browse-movie-year 1986
+                  .browse-movie-tags
+                    %a{:href => "https://yts.ag/torrent/download/76F2630B63B9497F25B436074133404350FD49FB", :rel => "nofollow", :title => "Download Hands of Steel 720p Torrent"} 720p
+                    %a{:href => "https://yts.ag/torrent/download/29FBAFF0A6CEA586FB593E13055181AF50CE60CB", :rel => "nofollow", :title => "Download Hands of Steel 1080p Torrent"} 1080p
+      .container.home-content
+        .home-movies
+          .row
+            %h2
+              Upcoming YIFY Movies
+              %a{:href => "https://yts.ag/requests"} Request a Movie
+          .row
+      .hidden-xs.hidden-sm
+        .download-overlay-helper-holder.pcprotect
+          .download-overlay
+          .download-overlay-img-holder
+            %img.win.10.ie{:alt => "pcprotect download overlay for IE", :src => "/images/pcprotect/win10_overlay_pcprotect_ie.png"}/
+            %img.win.10.edge{:alt => "pcprotect download overlay for Edge", :src => "/images/pcprotect/win10_overlay_pcprotect_edge.png"}/
+            %img.win.10.chrome{:alt => "pcprotect download overlay for Chrome", :src => "/images/pcprotect/win10_overlay_pcprotect_chrome.png"}/
+            %img.win.10.firefox{:alt => "pcprotect download overlay for Firefox", :src => "/images/pcprotect/win10_overlay_pcprotect_firefox.png"}/
+            %img.win.10.opera{:alt => "pcprotect download overlay for Opera", :src => "/images/pcprotect/win10_overlay_pcprotect_opera.png"}/
+            %img.win.other.ie{:alt => "pcprotect download overlay for IE", :src => "/images/pcprotect/win_other_overlay_pcprotect_ie.png"}/
+            %img.win.other.edge{:alt => "pcprotect download overlay for Edge", :src => "/images/pcprotect/win_other_overlay_pcprotect_edge.png"}/
+            %img.win.other.chrome{:alt => "pcprotect download overlay for Chrome", :src => "/images/pcprotect/win_other_overlay_pcprotect_chrome.png"}/
+            %img.win.other.firefox{:alt => "pcprotect download overlay for Firefox", :src => "/images/pcprotect/win_other_overlay_pcprotect_firefox.png"}/
+            %img.win.other.opera{:alt => "pcprotect download overlay for Opera", :src => "/images/pcprotect/win_other_overlay_pcprotect_opera.png"}/
+            %img.mac.chrome{:alt => "pcprotect download overlay for Chrome", :src => "/images/pcprotect/mac_overlay_pcprotect_chrome.png"}/
+            %img.mac.firefox{:alt => "pcprotect download overlay for Firefox", :src => "/images/pcprotect/mac_overlay_pcprotect_firefox.png"}/
+            %img.mac.opera{:alt => "pcprotect download overlay for Opera", :src => "/images/pcprotect/mac_overlay_pcprotect_opera.png"}/
+            %img.mac.safari{:alt => "pcprotect download overlay for Opera", :src => "/images/pcprotect/mac_overlay_pcprotect_safari.png"}/
+      .container.hidden-md.hidden-lg
+        .row
+          .mobile-footer
+            .col-sm-20
+              %a{:href => "https://yts.ag/"}
+                %span.glyphicon.glyphicon-home
+                %p Home
+              %a{:href => "https://yts.ag/browse-movies"}
+                %span.glyphicon.glyphicon-list-alt
+                %p Browse
+              %a{:href => "https://yts.ag/login"}
+                %span.glyphicon.glyphicon-log-in
+                %p Login
+            .col-sm-20
+              %a{:href => "https://yts.ag/register"}
+                %span.glyphicon.glyphicon-user
+                %p Register
+              %a{:href => "https://yts.ag/requests"}
+                %span.glyphicon.glyphicon-asterisk
+                %p Requests
+              %a{:href => "https://yts.ag/suggestions"}
+                %span.glyphicon.glyphicon-pushpin
+                %p Suggestions
+      %footer
+        .container
+          .row
+            .col-xs-20
+              %ul.text-center
+                %li YTS © 2011 - 2016
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/blog"} Blog
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/dmca"} DMCA
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/api"} API
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/rss-guide"} RSS
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/contact"} Contact
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/browse-movies"} Browse Movies
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/requests"} Requests
+                %li -
+                %li
+                  %a{:href => "https://yts.ag/login"} Login
+          .row
+            .col-xs-20
+              %ul.text-center
+                %li
+                  %a{:href => "https://torrentz.ht/"} Torrentz
+    %script{:src => "/assets/minified/modded1.js", :type => "text/javascript"}
+    %script{:async => "async", :src => "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56896aba6888ef3e", :type => "text/javascript"}
+    %script{:src => "//zjk24.com/15/29/d2/1529d2f756539e3b97b34f7e92b1f9c2.js", :type => "text/javascript"}

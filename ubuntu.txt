@@ -34,6 +34,43 @@ landscape-sysinfo
 # server timezone
 date +%Z
 
+# finding a file
+locate my.cnf
+
+# remove hostname from knownhosts
+ssh-keygen -R hostname
+
+
+# change root directory after login and add the following
+vi ~/.bashrc
+========
+# default login location to apps
+cd /home/apps
+
+# make apps/bin executable directory
+export PATH=$PATH:/home/apps/bin/
+========
+
+------------------------------------------------------------------------
+Create .ssh dir and authorized keys file [Ubuntu]
+------------------------------------------------------------------------
+# You have to create the .ssh directory and the authorized_keys file the first time.
+
+# Create the .ssh directory:
+$ mkdir ~/.ssh
+
+#Set the right permissions:
+$ chmod 700 ~/.ssh
+
+# Create the authorized_keys file:
+touch ~/.ssh/authorized_keys
+
+# Set the right permissions:
+chmod 600 ~/.ssh/authorized_keys
+
+#The permissions are important! It won't work without the right permissions!
+# Now you can add the public key to the authorized_keys file:
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ------------------------------------------------------------------------
 Build custom command
 ------------------------------------------------------------------------

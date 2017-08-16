@@ -12,3 +12,15 @@ http://jason.pureconcepts.net/2014/11/install-apache-php-mysql-mac-os-x-yosemite
 4. Done, go to http://localhost/phpmyadmin
 
 http://coolestguidesontheplanet.com/get-apache-mysql-php-phpmyadmin-working-osx-10-10-yosemite/
+
+
+------------------------------------------------------------------------
+After OS upgrade the httpd.conf is updated and you'll have to edit it again:
+------------------------------------------------------------------------
+$ mate /etc/apache2/httpd.conf
+# Now edit the Apache configuration. Feel free to use TextEdit if you are not familiar with vi.
+# Uncomment the following line (remove #):
+LoadModule php5_module libexec/apache2/libphp5.so
+
+# Then restart apache
+sudo /usr/sbin/apachectl restart

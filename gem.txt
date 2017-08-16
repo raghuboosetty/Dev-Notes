@@ -1,0 +1,11 @@
+Create a Gem:
+bundle gem excel_merge
+cd excel_merge
+
+git config user.name raghuboosetty
+git config user.email raghu.boos@gmail.com
+git remote add origin git@github.com-raghu-private:raghuboosetty/excel_merge.git
+
+git add .
+git commit -m "first gem commit"
+git push origin mastergem

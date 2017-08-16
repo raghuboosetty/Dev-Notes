@@ -35,7 +35,7 @@ Managing multiple SSH keys
 ------------------------------------------------------------------------
 
 # create another ssh-key pair for git
-ssh-keygen -t rsa -C "raghu.boos@gamil.com"
+ssh-keygen -t rsa -C "raghu@rubyeffect.com"
 
 # add the file name e.g: "id_rsa_raghu_private"
 ssh-add ~/.ssh/id_rsa_raghu_private
@@ -52,7 +52,7 @@ Host github.com-raghu-private
   IdentityFile ~/.ssh/id_rsa_raghu
 
 # Note the name at the end of github its pointing towards the key
-git clone git@github.com-raghu-private:raghuboosetty/ensigns.git
+git clone git@github.com-raghu-private:raghuboosetty/sample.git
 
 
 # further

@@ -41,3 +41,24 @@ installation directory - /Library/PostgreSQL/9.2
 data directory - /Library/PostgreSQL/9.2/data
 password - nimbu
 port - 5433
+
+
+# home brew
+brew services start postgresql
+brew services stop postgresql
+
+# server start
+pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+#server stop
+pg_ctl -D /usr/local/var/postgres stop -s -m fast
+
+------------------------------------------------------------------------
+Sierra
+------------------------------------------------------------------------
+#install
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads#macosx
+
+# uninstall
+sudo /Library/PostgreSQL/9.X/uninstall-postgresql.app/Contents/MacOS/installbuilder.sh
+
+#pgAdmin

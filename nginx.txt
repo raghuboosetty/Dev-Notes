@@ -1,0 +1,24 @@
+# nginx
+
+# commands
+$ nginx
+$ nginx -h
+$ nginx -s reload
+$ nginx -s stop
+
+# error log:
+$ sudo tail -100 /var/log/nginx/error.log
+# e.g timout error(60 seconds 504 Gateway Timeout Error):
+# 2015/11/15 22:23:18 [error] 11869#0: *46507 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 49.205.93.85, server: cape-qa.clickandpark.com, request: "GET /api/reports/282/data?with_pagination=true&page=1&limit=25 HTTP/1.1", upstream: "http://127.0.0.1:9090/api/reports/282/data?with_pagination=true&page=1&limit=25", host: "cape-qa.clickandpark.com", referrer: "https://cape-qa.clickandpark.com/manager"
+
+# Check for the config
+$ vi sites-enabled/cape-qa.conf
+
+# add this for the above error under server.. location
+# server {
+#   location / {
+#     ...
+#     proxy_read_timeout 600;
+#     ...
+#   }
+# }

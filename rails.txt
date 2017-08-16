@@ -1,4 +1,10 @@
 ------------------------------------------------------------------------
+Binding
+------------------------------------------------------------------------
+# rails sever with binding so that it can run on your local ip:
+rails s -b 0.0.0.0
+
+------------------------------------------------------------------------
 Scaffolding commands
 ------------------------------------------------------------------------
 rails g controller home index --no-test-framework --no-helper --no-assets --no-controller-specs --no-view-specs
@@ -14,7 +20,7 @@ reload!
 !ActiveRecord::Base.connection.supports_explain?
 ActiveRecord::Base.clear_cache!
 
-# running a migratoin in console
+# running a migration in console
 ActiveRecord::Migration.rename_column :states, :state, :name
 ActiveRecord::Migration.rename_column :states, :state_code, :code
 ActiveRecord::Migration.rename_column :cities, :city, :name

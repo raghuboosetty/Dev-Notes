@@ -1,0 +1,12 @@
+# update with n
+npm install -g n
+sudo n latest
+
+# update with homebrew
+brew install node
+brew update
+brew upgrade node
+
+
+# yarn - nvm you should exclude installing Node.js so that nvm’s version of Node.js is used.
+brew install yarn --ignore-dependencies

@@ -1,0 +1,57 @@
+## Setup Nginx/passenger Mac OS X:
+
+# install passenger gem
+$ sudo gem install passenger
+$ which passenger-config
+# /somepath/to/bin/passenger-config
+$ /somepath/to/bin/passenger-config --ruby-command
+# To use in Nginx : passenger_ruby /Users/username/.rvm/wrappers/ruby-2.1.7/ruby
+
+# install nginx
+$ brew install nginx --with-passenger
+
+# find the location of nginx conf
+$ brew info nginx --with-passenger
+
+# update nginx conf with passenger path
+$ mate /usr/local/etc/nginx/nginx.conf
+# add the following conf
+# passenger_root: taken from 'brew info nginx'
+# passenger_ruby: taken from '/somepath/to/bin/passenger-config --ruby-command'
+# port:           as per your wish and availability
+# rails_env:      suitable environment
+# root:           path to app
+#
+#
+# http {
+#   passenger_root /usr/local/opt/passenger/libexec/src/ruby_supportlib/phusion_passenger/locations.ini;
+#   passenger_ruby /Users/reonios/.rvm/gems/ruby-2.1.7@global/wrappers/ruby;
+#   server {
+#     listen            3001;
+#     server_name       localhost;
+#     passenger_enabled on;
+#     rails_env         staging;
+#     root              /Users/reonios/Workspace/projects/cape-app/public;
+#     ...
+#   }
+# }
+
+# nginx commands
+$ nginx -h
+$ nginx -s stop
+$ nginx -s restart
+$ nginx -s reload
+$ nginx
+
+# check installation
+$ sudo passenger-config validate-install
+$ sudo passenger-memory-stats
+
+# restart passenger
+$ passenger-config restart-app
+# Check with environment config locally in the app
+
+# references
+# https://www.phusionpassenger.com/library/install/nginx/install/oss/osx/
+# https://www.phusionpassenger.com/library/admin/apache/restart_app.html
+# http://jrmyward.com/blog/posts/local-rails-development-with-nginx-passenger-4-and-ruby-2-on-mac-os-x
